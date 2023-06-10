@@ -6,6 +6,10 @@
     @apply bg-[#F1F1F1]
 }
 
+.bg_secondary {
+    @apply bg-[#5FC7AE]
+}
+
 .active {
     background-color:#F1F1F1 ;
     border-radius: 15px;

@@ -17,7 +17,7 @@ const ErrorPage = () => {
           looking for doesn't exist, isn't available or was loading incorrectly.
         </p>
 
-        <button className="py-2 px-4 bg_primary rounded-md">
+        <button className="py-2 px-4 bg-[#5FC7AE] rounded-md">
           <Link to="/">Back To Home</Link>
         </button>
       </div>
