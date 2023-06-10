@@ -6,6 +6,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ErrorPage from "./components/AllLayout/ErrorLayout/ErrorPage.jsx";
 import Home from "./components/AllLayout/HomeLayout/Home/Home.jsx";
 import { HelmetProvider } from "react-helmet-async";
+import Login from "./components/AllLayout/LoginRegestationLayout/Login/Login.jsx";
 
 const router = createBrowserRouter([
   {
@@ -16,6 +17,10 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+      },
+      {
+        path: "/login",
+        element: <Login />,
       },
     ],
   },

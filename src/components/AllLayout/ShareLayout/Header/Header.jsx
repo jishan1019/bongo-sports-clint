@@ -114,7 +114,7 @@ const Header = () => {
           </div>
 
           <Link
-            to="/"
+            to="/login"
             className="btn hidden md:block btn-ghost normal-case pt-4 text-[15px] bg_primary ml-4"
           >
             Login
