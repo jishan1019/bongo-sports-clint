@@ -1,5 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   const {
@@ -43,8 +44,26 @@ const Login = () => {
 
             {errors.exampleRequired && <span>This field is required</span>}
 
+            <p>
+              Didn't have account{" "}
+              <Link to="/regestation">
+                <span className="underline">Create now!</span>
+              </Link>{" "}
+            </p>
+
             <input className="bg_secondary w-full p-3 mt-6" type="submit" />
           </form>
+
+          <div className="divider">OR</div>
+
+          <button className="btn btn-outline btn-success w-full">
+            Sign in with
+            <img
+              className="h-6"
+              src="https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-google-logos-vector-eps-cdr-svg-download-10.png"
+              alt=""
+            />
+          </button>
         </div>
       </div>
 
