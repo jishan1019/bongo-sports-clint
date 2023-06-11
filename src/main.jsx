@@ -8,6 +8,7 @@ import Home from "./components/AllLayout/HomeLayout/Home/Home.jsx";
 import { HelmetProvider } from "react-helmet-async";
 import Login from "./components/AllLayout/LoginRegestationLayout/Login/Login.jsx";
 import Regestation from "./components/AllLayout/LoginRegestationLayout/Regestation/Regestation.jsx";
+import AuthProvider from "./components/SecurityLayout/AuthProvider/AuthProvider.jsx";
 
 const router = createBrowserRouter([
   {
@@ -32,9 +33,11 @@ const router = createBrowserRouter([
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <HelmetProvider>
-    <React.StrictMode>
-      <RouterProvider router={router} />
-    </React.StrictMode>
-  </HelmetProvider>
+  <AuthProvider>
+    <HelmetProvider>
+      <React.StrictMode>
+        <RouterProvider router={router} />
+      </React.StrictMode>
+    </HelmetProvider>
+  </AuthProvider>
 );

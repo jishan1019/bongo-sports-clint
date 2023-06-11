@@ -1,8 +1,17 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { FaEye } from "react-icons/fa";
+import { AuthContext } from "../../../SecurityLayout/AuthProvider/AuthProvider";
+import Swal from "sweetalert2";
 
 const Login = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const { signIn, googleSignIn } = useContext(AuthContext);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const form = location?.state?.from?.pathname || "/";
+
   const {
     register,
     handleSubmit,
@@ -10,8 +19,24 @@ const Login = () => {
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
-    console.log(data);
     reset();
+    const email = data?.email;
+    const password = data?.password;
+    signIn(email, password).then((result) => {
+      const user = result.user;
+      Swal.fire("Login Success!", "Go Back", "success");
+      navigate(form, { replace: true });
+    });
+  };
+
+  const handelGoogleSignin = () => {
+    googleSignIn().then((result) => {
+      const user = result.user;
+      if (user) {
+        Swal.fire("Login Success!", "Go Back", "success");
+        navigate(form, { replace: true });
+      }
+    });
   };
 
   return (
@@ -35,11 +60,30 @@ const Login = () => {
 
             <label htmlFor="">
               Password <br />
-              <input
-                className="bg-[#F9F9F9] w-full p-3 mt-1 mb-4"
-                placeholder="Enter Your Password"
-                {...register("password", { required: true })}
-              />
+              <div className="flex justify-center items-center relative ">
+                <input
+                  type={isVisible ? "text" : "password"}
+                  className="bg-[#F9F9F9] w-full p-3 mt-1 mb-4"
+                  placeholder="Enter Your Password"
+                  {...register("password", {
+                    required: true,
+                    minLength: {
+                      value: 6,
+                      message: "Password must be at least 6 characters long",
+                    },
+                    pattern: {
+                      value: /^(?=.*[A-Z])(?=.*[!@#$%^&*])/,
+                      message:
+                        "Password must contain at least one uppercase letter and one special character",
+                    },
+                  })}
+                />
+                <FaEye
+                  onClick={() => setIsVisible(!isVisible)}
+                  className="absolute right-0 mb-2 mr-4 text-xl"
+                />
+              </div>
+              {errors.password && <span>{errors.password.message}</span>}
             </label>
 
             {errors.exampleRequired && <span>This field is required</span>}
@@ -48,7 +92,7 @@ const Login = () => {
               Didn't have account{" "}
               <Link to="/regestation">
                 <span className="underline">Create now!</span>
-              </Link>{" "}
+              </Link>
             </p>
 
             <input className="bg_secondary w-full p-3 mt-6" type="submit" />
@@ -56,7 +100,10 @@ const Login = () => {
 
           <div className="divider">OR</div>
 
-          <button className="btn btn-outline btn-success w-full">
+          <button
+            onClick={handelGoogleSignin}
+            className="btn btn-outline btn-success w-full"
+          >
             Sign in with
             <img
               className="h-6"
