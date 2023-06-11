@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../../../SecurityLayout/AuthProvider/AuthProvider";
 
 const Header = () => {
+  const { user, logout } = useContext(AuthContext);
+
   return (
     <>
       <div className="navbar shadow-sm bg-base-100">
@@ -107,18 +110,24 @@ const Header = () => {
         </div>
         <div className="navbar-end">
           <div className="w-10 rounded-full">
-            <img
-              className="rounded-full"
-              src="https://img.freepik.com/premium-photo/portrait-handsome-young-man_53876-38137.jpg?w=360"
-            />
+            <img className="rounded-full" src={user && user?.photoURL} />
           </div>
 
-          <Link
-            to="/login"
-            className="btn hidden md:block btn-ghost normal-case pt-4 text-[15px] bg_primary ml-4"
-          >
-            Login
-          </Link>
+          {user ? (
+            <button
+              onClick={logout}
+              className="btn hidden md:block btn-ghost normal-case text-[15px] bg_primary ml-4"
+            >
+              Logout
+            </button>
+          ) : (
+            <Link
+              to="/login"
+              className="btn hidden md:block btn-ghost normal-case pt-4 text-[15px] bg_primary ml-4"
+            >
+              Login
+            </Link>
+          )}
         </div>
       </div>
     </>
