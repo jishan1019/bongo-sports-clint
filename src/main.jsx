@@ -10,6 +10,7 @@ import Login from "./components/AllLayout/LoginRegestationLayout/Login/Login.jsx
 import Regestation from "./components/AllLayout/LoginRegestationLayout/Regestation/Regestation.jsx";
 import AuthProvider from "./components/SecurityLayout/AuthProvider/AuthProvider.jsx";
 import Classes from "./components/AllLayout/ClassesLayout/Classes.jsx";
+import Instractor from "./components/AllLayout/InstractorLayout/Instactor/Instractor.jsx";
 
 const router = createBrowserRouter([
   {
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
       {
         path: "/classes",
         element: <Classes />,
+      },
+      {
+        path: "/instractor",
+        element: <Instractor />,
       },
     ],
   },

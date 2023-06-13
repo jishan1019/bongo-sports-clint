@@ -4,9 +4,11 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaEye } from "react-icons/fa";
 import { AuthContext } from "../../../SecurityLayout/AuthProvider/AuthProvider";
 import Swal from "sweetalert2";
+import Loader from "../../ShareLayout/Loader/Loader";
 
 const Login = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [isLoading, setisLoading] = useState(false);
   const { signIn, googleSignIn } = useContext(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();
@@ -20,24 +22,42 @@ const Login = () => {
   } = useForm();
   const onSubmit = (data) => {
     reset();
+    setisLoading(true);
     const email = data?.email;
     const password = data?.password;
-    signIn(email, password).then((result) => {
-      const user = result.user;
-      Swal.fire("Login Success!", "Go Back", "success");
-      navigate(form, { replace: true });
-    });
+    signIn(email, password)
+      .then((result) => {
+        const user = result.user;
+        setisLoading(false);
+        Swal.fire("Login Success!", "Go Back", "success");
+        navigate(form, { replace: true });
+      })
+      .catch((err) => {
+        console.log(err);
+        setisLoading(false);
+      });
   };
 
   const handelGoogleSignin = () => {
-    googleSignIn().then((result) => {
-      const user = result.user;
-      if (user) {
-        Swal.fire("Login Success!", "Go Back", "success");
-        navigate(form, { replace: true });
-      }
-    });
+    setisLoading(true);
+    googleSignIn()
+      .then((result) => {
+        const user = result.user;
+        setisLoading(false);
+        if (user) {
+          Swal.fire("Login Success!", "Go Back", "success");
+          navigate(form, { replace: true });
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+        setisLoading(false);
+      });
   };
+
+  if (isLoading) {
+    return <Loader />;
+  }
 
   return (
     <section className="mb-16 w-full flex justify-center items-center md:flex-row flex-col-reverse space-x-4 space-y-4 p-4">
