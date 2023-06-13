@@ -7,3 +7,4 @@
 -npm install react-icons --save
 -npm install sweetalert2
 -npm install axios
+-npm i react-moving-text

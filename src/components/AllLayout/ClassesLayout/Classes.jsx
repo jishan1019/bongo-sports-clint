@@ -17,8 +17,6 @@ const Classes = () => {
 
   const approveClasses = data.filter((approve) => approve.status === "approve");
 
-  console.log(approveClasses);
-
   if (isLoading) {
     return <Loader />;
   }
