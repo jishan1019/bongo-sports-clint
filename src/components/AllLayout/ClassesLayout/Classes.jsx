@@ -57,19 +57,19 @@ const Classes = () => {
                 <span className="text-lg">
                   <AiOutlineTeam />
                 </span>
-                Instructor Name: {singleClass?.instructorName}
+                <strong> Instructor Name</strong>: {singleClass?.instructorName}
               </p>
               <p className="inline-flex gap-2 items-center">
                 <span className="text-lg">
                   <AiOutlineContacts />
                 </span>
-                Available Seats: {singleClass?.availableSeats}
+                <strong>Available Seats</strong>: {singleClass?.availableSeats}
               </p>
               <p className="inline-flex gap-2 items-center">
                 <span className="text-lg ">
                   <AiFillHeart />
                 </span>
-                Course Price: ${singleClass?.price}
+                <strong>Course Price</strong>: ${singleClass?.price}
               </p>
 
               <div className="card-actions justify-end">
