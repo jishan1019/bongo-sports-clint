@@ -1,6 +1,7 @@
 import React from "react";
 import useAxiosLoadData from "../../CustomHook/useAxiosLoadData";
 import Loader from "../ShareLayout/Loader/Loader";
+import MovingText from "react-moving-text";
 import { key } from "localforage";
 import HelmetTitle from "../ShareLayout/Helmet/HelmetTitel";
 import {
@@ -34,8 +35,32 @@ const Classes = () => {
       <HelmetTitle title="Classes" />
 
       <div className="pt-12 pb-12 space-y-2 bg_primary text-center  ">
-        <h1 className="text-3xl font-bold">Classes</h1>
-        <p>Home - Classes</p>
+        <h1 className="text-3xl font-bold">
+          <MovingText
+            type="slideInFromBottom"
+            duration="900ms"
+            delay="0s"
+            direction="normal"
+            timing="ease"
+            iteration="1"
+            fillMode="none"
+          >
+            Classes
+          </MovingText>
+        </h1>
+        <h1>
+          <MovingText
+            type="slideInFromTop"
+            duration="900ms"
+            delay="0s"
+            direction="normal"
+            timing="ease"
+            iteration="1"
+            fillMode="none"
+          >
+            Home - Classes
+          </MovingText>
+        </h1>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8 mb-8 md:ml-0 md:mr-0 ml-2 mr-2">

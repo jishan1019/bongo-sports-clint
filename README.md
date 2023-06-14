@@ -8,3 +8,4 @@
 -npm install sweetalert2
 -npm install axios
 -npm i react-moving-text
+-npm i swiper
