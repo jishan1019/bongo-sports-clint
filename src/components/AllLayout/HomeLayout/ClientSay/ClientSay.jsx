@@ -1,10 +1,11 @@
 import React from "react";
+import { SiGooglehangouts } from "react-icons/si";
 
 const ClientSay = () => {
   return (
     <section className="mb-10">
       <h1 className="text-center text-3xl font-bold ">Our Client Say</h1>
-      <div className="flex flex-col border-opacity-50 w-[20%] mx-auto">
+      <div className="flex flex-col  mb-2 border-opacity-50 w-1/2 md:w-[20%] mx-auto">
         <div className="divider">
           <button className="">
             <svg
@@ -22,6 +23,25 @@ const ClientSay = () => {
               />
             </svg>
           </button>
+        </div>
+      </div>
+
+      <p className="mb-16 w-1/2 text-center mx-auto">
+        Dynamic, well-structured, expert-led sports course with comprehensive
+        training and facilities.
+      </p>
+
+      <div>
+        <div className="bg_secondary relative p-8 md:p-16 w-[80%] mx-auto mt-4">
+          <div className="p-6 text-3xl bg_secondary -top-10 -left-9 rounded-full absolute">
+            <SiGooglehangouts />
+          </div>
+          <h1 className="text-[20px]">
+            Consider the course's flexibility and schedule, taking into account
+            your own availability and commitments. A course that offers options
+            for different time slots or flexible attendance policies can
+            accommodate various schedules.
+          </h1>
         </div>
       </div>
     </section>
