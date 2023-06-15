@@ -19,7 +19,7 @@ const Slider = () => {
         <SwiperSlide className="relative">
           <div>
             <img
-              src="https://sportradar.com/wp-content/uploads/2022/02/SS_Header.jpg"
+              src="https://sportradar.com/wp-content/uploads/2022/02/AV-EDITORIAL-SERVICES_Header.jpg"
               alt=""
             />
           </div>
@@ -42,7 +42,7 @@ const Slider = () => {
         <SwiperSlide className="relative">
           <div>
             <img
-              src="https://sportradar.com/wp-content/uploads/2022/02/AV-EDITORIAL-SERVICES_Header.jpg"
+              src="https://sportradar.com/wp-content/uploads/2022/02/SS_Header.jpg"
               alt=""
             />
           </div>
