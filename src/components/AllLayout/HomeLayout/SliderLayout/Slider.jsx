@@ -25,14 +25,14 @@ const Slider = () => {
           </div>
           <div className="top-1/2 absolute text-white">
             <h3 className="md:text-lg text-[12px] ml-16 -mt-8 md:-mt-16 mb-2">
-              Wellcome to our acadamy.
+              Wellcome to sports acadamy.
             </h3>
             <h3 className="md:text-3xl ml-16 -mt-1">
               Keep Refresh && Strong Health
             </h3>
             <h3 className="hidden md:block ml-16 mt-2">
-              Bongo Sports Academy: Excellence in sports training, nurturing
-              athletes, and fostering a passion for sports
+              Bongo Sports Academy: Excellence in sports training, <br />
+              nurturing athletes, and fostering a passion for sports.
             </h3>
             <button className="btn btn-outline ml-16 md:mt-5 hidden md:block border-white text-white">
               Read More
@@ -48,14 +48,14 @@ const Slider = () => {
           </div>
           <div className="top-1/2 absolute text-white">
             <h3 className="md:text-lg text-[12px] ml-16 -mt-8 md:-mt-16 mb-2">
-              Wellcome to our acadamy.
+              Wellcome to sports acadamy.
             </h3>
             <h3 className="md:text-3xl ml-16 -mt-1">
               Keep Refresh && Strong Health
             </h3>
             <h3 className="hidden md:block ml-16 mt-2">
-              Bongo Sports Academy: Excellence in sports training, nurturing
-              athletes, and fostering a passion for sports
+              Bongo Sports Academy: Excellence in sports training, <br />{" "}
+              nurturing athletes, and fostering a passion for sports.
             </h3>
             <button className="btn btn-outline ml-16 md:mt-5 hidden md:block border-white text-white">
               Read More
@@ -71,14 +71,14 @@ const Slider = () => {
           </div>
           <div className="top-1/2 absolute text-white">
             <h3 className="md:text-lg text-[12px] ml-16 -mt-8 md:-mt-16 mb-2">
-              Wellcome to our acadamy.
+              Wellcome to sports acadamy.
             </h3>
             <h3 className="md:text-3xl ml-16 -mt-1">
               Keep Refresh && Strong Health
             </h3>
             <h3 className="hidden md:block ml-16 mt-2">
-              Bongo Sports Academy: Excellence in sports training, nurturing
-              athletes, and fostering a passion for sports
+              Bongo Sports Academy: Excellence in sports training, <br />{" "}
+              nurturing athletes, and fostering a passion for sports.
             </h3>
             <button className="btn btn-outline ml-16 md:mt-5 hidden md:block border-white text-white">
               Read More
