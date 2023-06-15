@@ -23,24 +23,20 @@ const CourseFacilities = () => {
 
   return (
     <section className="bg_primary p-6">
-      <motion.div
-        className="container"
-        initial={{ scale: 0 }}
-        animate={{ rotate: 180, scale: 1 }}
-        transition={{
-          type: "spring",
-          stiffness: 260,
-          damping: 20,
-        }}
-      />
-
-      <SectionTitel titel="Our Facilities" subTitel=""></SectionTitel>
+      <SectionTitel titel="Our Facilities" subTitel="" />
 
       <div className="grid grid-cols-1 gap-7 md:grid-cols-3 mb-16">
         {data?.map((facilities) => (
-          <div
+          <motion.div
             key={facilities._id}
             className="card w-full bg-base-100 shadow rounded-sm"
+            initial={{ scale: 0 }}
+            animate={{ rotate: 0, scale: 1 }}
+            transition={{
+              type: "spring",
+              stiffness: 100, // Adjust this value to make the animation less stiff
+              damping: 10, // Adjust this value to reduce the damping effect
+            }}
           >
             <figure>
               <img src={facilities?.image} alt="Shoes" />
@@ -51,7 +47,7 @@ const CourseFacilities = () => {
               </h2>
               <p className="pl-4 pr-4 text-center">{facilities?.about}</p>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </section>
