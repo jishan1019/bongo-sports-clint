@@ -9,6 +9,7 @@ import {
   AiOutlineTeam,
   AiOutlineContacts,
   AiFillHeart,
+  AiOutlineCluster,
 } from "react-icons/ai";
 
 const Classes = () => {
@@ -89,6 +90,12 @@ const Classes = () => {
                   <AiOutlineContacts />
                 </span>
                 <strong>Available Seats</strong>: {singleClass?.availableSeats}
+              </p>
+              <p className="inline-flex gap-2 items-center">
+                <span className="text-lg">
+                  <AiOutlineCluster />
+                </span>
+                <strong>Enroll Student</strong>: {singleClass?.enrollStudents}
               </p>
               <p className="inline-flex gap-2 items-center">
                 <span className="text-lg ">
