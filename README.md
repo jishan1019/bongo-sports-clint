@@ -9,3 +9,4 @@
 -npm install axios
 -npm i react-moving-text
 -npm i swiper
+-npm install react-query

@@ -2,14 +2,40 @@ import React from "react";
 import useAxiosLoadData from "../../../CustomHook/useAxiosLoadData";
 import { useContext } from "react";
 import { AuthContext } from "../../../SecurityLayout/AuthProvider/AuthProvider";
+import { useMutation, useQuery, useQueryClient } from "react-query";
 
 const MySelectClass = () => {
   const { user } = useContext(AuthContext);
-  const { data, isLoading, error } = useAxiosLoadData(
-    `http://localhost:4000/cart/${user?.email}`
+  const queryClient = useQueryClient();
+
+  const { data, isLoading, error } = useQuery(
+    "cartItems",
+    () =>
+      fetch(`http://localhost:4000/cart/${user?.email}`).then((res) =>
+        res.json()
+      ),
+    { enabled: !!user }
   );
 
-  console.log(data);
+  // Delete cart item mutation
+  const deleteCartItem = useMutation(
+    (_id) => fetch(`http://localhost:4000/cart/${_id}`, { method: "DELETE" }),
+    {
+      onSuccess: () => {
+        // Invalidate and refetch the cart items query to update the UI
+        queryClient.invalidateQueries("cartItems");
+      },
+    }
+  );
+
+  const hanelPayment = () => {
+    console.log("item payment");
+  };
+
+  const handelDelete = (_id) => {
+    console.log("item delete", _id);
+    deleteCartItem.mutate(_id);
+  };
 
   return (
     <section className="mt-16 mb-16 overflow-auto">
@@ -51,7 +77,12 @@ const MySelectClass = () => {
                   <button className="btn btn-sm bg_secondary">Pay Now</button>
                 </th>
                 <th>
-                  <button className="btn btn-sm bg-red-500">Delete</button>
+                  <button
+                    onClick={() => handelDelete(cart_item?._id)}
+                    className="btn btn-sm bg-red-500"
+                  >
+                    Delete
+                  </button>
                 </th>
               </tr>
             </tbody>

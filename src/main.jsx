@@ -17,6 +17,9 @@ import DashboardRole from "./components/DashboardLayout/DashboardHome/DashboardR
 import MyEnrollClass from "./components/DashboardLayout/SudentDashboard/MyEnrollClass/MyEnrollClass.jsx";
 import MySelectClass from "./components/DashboardLayout/SudentDashboard/MySelectClass/MySelectClass.jsx";
 import PaymentHistory from "./components/DashboardLayout/SudentDashboard/PaymentHistory/PaymentHistory.jsx";
+import { QueryClient, QueryClientProvider } from "react-query";
+
+const queryClient = new QueryClient();
 
 const router = createBrowserRouter([
   {
@@ -82,10 +85,12 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <AuthProvider>
-    <HelmetProvider>
-      <React.StrictMode>
-        <RouterProvider router={router} />
-      </React.StrictMode>
-    </HelmetProvider>
+    <QueryClientProvider client={queryClient}>
+      <HelmetProvider>
+        <React.StrictMode>
+          <RouterProvider router={router} />
+        </React.StrictMode>
+      </HelmetProvider>
+    </QueryClientProvider>
   </AuthProvider>
 );
