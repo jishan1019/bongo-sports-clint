@@ -100,6 +100,56 @@ const DashboardHeader = () => {
                 </li>
               </ul>
             )}
+
+            {userRole === "instractor" && (
+              <ul
+                tabIndex={0}
+                className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-60 bg_primary"
+              >
+                <li>
+                  <Link to="">Instractor Home</Link>
+                </li>
+
+                <li>
+                  <Link to="">Add a Class</Link>
+                </li>
+
+                <li>
+                  <Link to="">My Add Classes</Link>
+                </li>
+
+                <div className="divider">OR</div>
+
+                <li>
+                  <Link to="/">Go to home</Link>
+                </li>
+              </ul>
+            )}
+
+            {userRole === "admin" && (
+              <ul
+                tabIndex={0}
+                className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-60 bg_primary"
+              >
+                <li>
+                  <Link to="">Admin Home</Link>
+                </li>
+
+                <li>
+                  <Link to="">Manage Classes</Link>
+                </li>
+
+                <li>
+                  <Link to="">Manage Users</Link>
+                </li>
+
+                <div className="divider">OR</div>
+
+                <li>
+                  <Link to="/">Go to home</Link>
+                </li>
+              </ul>
+            )}
           </div>
         </div>
       </div>
