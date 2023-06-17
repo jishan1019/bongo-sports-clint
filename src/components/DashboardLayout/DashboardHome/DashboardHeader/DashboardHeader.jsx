@@ -74,7 +74,7 @@ const DashboardHeader = () => {
                 className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-60 bg_primary"
               >
                 <li>
-                  <Link to="">Student Home</Link>
+                  <Link to="/dashboard/home">Student Home</Link>
                 </li>
 
                 <li>
