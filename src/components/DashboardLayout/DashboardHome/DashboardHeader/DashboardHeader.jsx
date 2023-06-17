@@ -1,23 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import useAxiosLoadData from "../../../CustomHook/useAxiosLoadData";
 import Loader from "../../../AllLayout/ShareLayout/Loader/Loader";
-import { useContext } from "react";
-import { AuthContext } from "../../../SecurityLayout/AuthProvider/AuthProvider";
+import useUserRole from "../../../CustomHook/useUserRole";
 
 const DashboardHeader = () => {
-  const { user } = useContext(AuthContext);
+  const userRole = useUserRole();
 
-  const { data, isLoading, error } = useAxiosLoadData(
-    `http://localhost:4000/users/${user?.email}`
-  );
-  const userRole = data?.role;
-
-  if (isLoading) {
+  if (userRole?.isLoading) {
     return <Loader />;
   }
 
-  if (error) {
+  if (userRole?.error) {
     return (
       <div className="flex justify-center items-center h-screen">
         Error: {error.message}
@@ -68,7 +61,7 @@ const DashboardHeader = () => {
               </svg>
             </label>
 
-            {userRole === "student" && (
+            {userRole?.userRole === "student" && (
               <ul
                 tabIndex={0}
                 className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-60 bg_primary"
@@ -101,7 +94,7 @@ const DashboardHeader = () => {
               </ul>
             )}
 
-            {userRole === "instractor" && (
+            {userRole?.userRole === "instractor" && (
               <ul
                 tabIndex={0}
                 className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-60 bg_primary"
@@ -126,7 +119,7 @@ const DashboardHeader = () => {
               </ul>
             )}
 
-            {userRole === "admin" && (
+            {userRole?.userRole === "admin" && (
               <ul
                 tabIndex={0}
                 className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-60 bg_primary"

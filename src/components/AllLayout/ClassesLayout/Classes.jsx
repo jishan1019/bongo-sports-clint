@@ -11,13 +11,46 @@ import {
   AiFillHeart,
   AiOutlineCluster,
 } from "react-icons/ai";
+import useUserRole from "../../CustomHook/useUserRole";
+import PrivateRoute from "../../SecurityLayout/PrivateRoute/PrivateRoute";
+import { Result } from "postcss";
+import { useContext } from "react";
+import { AuthContext } from "../../SecurityLayout/AuthProvider/AuthProvider";
+import Swal from "sweetalert2";
 
 const Classes = () => {
+  const role = useUserRole();
+  const userRole = role?.userRole;
+  const { user } = useContext(AuthContext);
+
   const { data, isLoading, error } = useAxiosLoadData(
     "http://localhost:4000/classes"
   );
 
   const approveClasses = data.filter((approve) => approve.status === "approve");
+
+  const hanelAddToCart = (item) => {
+    const saveItem = {
+      price: item?.price,
+      item_image: item?.image,
+      class_name: item?.name,
+      email: user?.email,
+      instructorName: item?.instructorName,
+    };
+
+    fetch("http://localhost:4000/cart", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(saveItem),
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        console.log(result);
+        Swal.fire("Item Added Success!", "Go Back", "success");
+      });
+  };
 
   if (isLoading) {
     return <Loader />;
@@ -105,14 +138,21 @@ const Classes = () => {
               </p>
 
               <div className="card-actions justify-end">
-                <button
-                  className="bg_primary p-4 rounded-lg font-semibold"
-                  disabled={singleClass?.availableSeats === 0}
-                >
-                  {singleClass?.availableSeats === 0
-                    ? "Not Available"
-                    : "Buy Now"}
-                </button>
+                <PrivateRoute>
+                  <button
+                    onClick={() => hanelAddToCart(singleClass)}
+                    className="bg_primary p-4 rounded-lg font-semibold"
+                    disabled={
+                      singleClass?.availableSeats === 0 ||
+                      userRole == "admin" ||
+                      userRole == "instractor"
+                    }
+                  >
+                    {singleClass?.availableSeats === 0
+                      ? "Not Available"
+                      : "Buy Now"}
+                  </button>
+                </PrivateRoute>
               </div>
             </div>
           </div>
