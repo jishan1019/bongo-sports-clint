@@ -14,6 +14,9 @@ import Instractor from "./components/AllLayout/InstractorLayout/Instactor/Instra
 import DashboardHome from "./components/DashboardLayout/DashboardHome/DashboardHome.jsx";
 import PrivateRoute from "./components/SecurityLayout/PrivateRoute/PrivateRoute.jsx";
 import DashboardRole from "./components/DashboardLayout/DashboardHome/DashboardRole/DashboardRole.jsx";
+import MyEnrollClass from "./components/DashboardLayout/SudentDashboard/MyEnrollClass/MyEnrollClass.jsx";
+import MySelectClass from "./components/DashboardLayout/SudentDashboard/MySelectClass/MySelectClass.jsx";
+import PaymentHistory from "./components/DashboardLayout/SudentDashboard/PaymentHistory/PaymentHistory.jsx";
 
 const router = createBrowserRouter([
   {
@@ -56,6 +59,22 @@ const router = createBrowserRouter([
       {
         path: "home",
         element: <DashboardRole />,
+      },
+      {
+        path: "my_enroll_calss",
+        element: <MyEnrollClass />,
+      },
+      {
+        path: "my_select_calss",
+        element: <MySelectClass />,
+      },
+      {
+        path: "my_select_calss",
+        element: <MySelectClass />,
+      },
+      {
+        path: "payment_history",
+        element: <PaymentHistory />,
       },
     ],
   },

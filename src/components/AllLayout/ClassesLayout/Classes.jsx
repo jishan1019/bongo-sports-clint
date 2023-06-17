@@ -36,6 +36,7 @@ const Classes = () => {
       class_name: item?.name,
       email: user?.email,
       instructorName: item?.instructorName,
+      enroll_status: "pending",
     };
 
     fetch("http://localhost:4000/cart", {
@@ -47,7 +48,6 @@ const Classes = () => {
     })
       .then((res) => res.json())
       .then((result) => {
-        console.log(result);
         Swal.fire("Item Added Success!", "Go Back", "success");
       });
   };

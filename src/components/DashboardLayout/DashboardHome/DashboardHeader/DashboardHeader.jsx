@@ -71,15 +71,15 @@ const DashboardHeader = () => {
                 </li>
 
                 <li>
-                  <Link to="">My Select Class</Link>
+                  <Link to="/dashboard/my_select_calss">My Select Class</Link>
                 </li>
 
                 <li>
-                  <Link to="">My Enroll Class</Link>
+                  <Link to="/dashboard/my_enroll_calss">My Enroll Class</Link>
                 </li>
 
                 <li>
-                  <Link to="">Payment History</Link>
+                  <Link to="/dashboard/payment_history">Payment History</Link>
                 </li>
 
                 <div className="divider">OR</div>
