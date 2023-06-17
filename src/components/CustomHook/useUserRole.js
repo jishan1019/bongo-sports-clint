@@ -10,7 +10,7 @@ const useUserRole = () => {
   );
   const userRole = data?.role;
 
-  return { userRole, isLoading, error };
+  return { userRole, isLoading, error, data };
 };
 
 export default useUserRole;

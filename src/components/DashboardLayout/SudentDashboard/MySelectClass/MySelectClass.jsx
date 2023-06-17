@@ -33,7 +33,6 @@ const MySelectClass = () => {
   };
 
   const handelDelete = (_id) => {
-    console.log("item delete", _id);
     deleteCartItem.mutate(_id);
   };
 
@@ -71,7 +70,7 @@ const MySelectClass = () => {
                 </td>
                 <td>{cart_item?.class_name}</td>
                 <td>{cart_item?.instructorName}</td>
-                <td>{cart_item?.price}</td>
+                <td>${cart_item?.price}</td>
 
                 <th>
                   <button className="btn btn-sm bg_secondary">Pay Now</button>
