@@ -46,6 +46,7 @@ const Login = () => {
         name: user?.displayName,
         email: user?.email,
         role: "student",
+        image: user?.photoURL,
       };
 
       fetch("http://localhost:4000/users", {

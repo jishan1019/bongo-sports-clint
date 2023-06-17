@@ -116,6 +116,16 @@ const AddClass = () => {
               {...register("status", { required: true })}
             />
           </label>
+
+          <label className="hidden" htmlFor="">
+            feedback <br />
+            <input
+              defaultValue="wait for approve"
+              className="bg-[#f9f9f9b6] w-full p-3 mt-1 mb-4"
+              placeholder="Enter feedback"
+              {...register("feedback", { required: true })}
+            />
+          </label>
         </div>
 
         {errors.exampleRequired && <span>This field is required</span>}

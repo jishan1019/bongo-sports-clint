@@ -125,15 +125,15 @@ const DashboardHeader = () => {
                 className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-60 z-50 relative"
               >
                 <li>
-                  <Link to="">Admin Home</Link>
+                  <Link to="/dashboard/manage_class">Admin Home</Link>
                 </li>
 
                 <li>
-                  <Link to="">Manage Classes</Link>
+                  <Link to="/dashboard/manage_class">Manage Classes</Link>
                 </li>
 
                 <li>
-                  <Link to="">Manage Users</Link>
+                  <Link to="/dashboard/manage_user">Manage Users</Link>
                 </li>
 
                 <div className="divider">OR</div>
