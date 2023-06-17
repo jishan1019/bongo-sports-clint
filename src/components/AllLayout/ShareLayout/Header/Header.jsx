@@ -41,14 +41,16 @@ const Header = () => {
                   Home
                 </NavLink>
               </li>
-              <li>
-                <NavLink
-                  to="/dashboard"
-                  className={({ isActive }) => (isActive ? "active" : "")}
-                >
-                  Dashboard
-                </NavLink>
-              </li>
+              {user && (
+                <li>
+                  <NavLink
+                    to="/dashboard"
+                    className={({ isActive }) => (isActive ? "active" : "")}
+                  >
+                    Dashboard
+                  </NavLink>
+                </li>
+              )}
               <li>
                 <NavLink
                   to="/instractor"
@@ -82,14 +84,16 @@ const Header = () => {
                 Home
               </NavLink>
             </li>
-            <li>
-              <NavLink
-                to="/dashboard"
-                className={({ isActive }) => (isActive ? "active" : "")}
-              >
-                Dashboard
-              </NavLink>
-            </li>
+            {user && (
+              <li>
+                <NavLink
+                  to="/dashboard/home"
+                  className={({ isActive }) => (isActive ? "active" : "")}
+                >
+                  Dashboard
+                </NavLink>
+              </li>
+            )}
             <li>
               <NavLink
                 to="/instractor"

@@ -16,8 +16,6 @@ const Instractor = () => {
     "http://localhost:4000/instractor"
   );
 
-  console.log(data);
-
   if (isLoading) {
     return <Loader />;
   }

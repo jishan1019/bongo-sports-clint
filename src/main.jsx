@@ -11,6 +11,9 @@ import Regestation from "./components/AllLayout/LoginRegestationLayout/Regestati
 import AuthProvider from "./components/SecurityLayout/AuthProvider/AuthProvider.jsx";
 import Classes from "./components/AllLayout/ClassesLayout/Classes.jsx";
 import Instractor from "./components/AllLayout/InstractorLayout/Instactor/Instractor.jsx";
+import DashboardHome from "./components/DashboardLayout/DashboardHome/DashboardHome.jsx";
+import StudentHome from "./components/DashboardLayout/SudentDashboard/StudentHome/StudentHome.jsx";
+import PrivateRoute from "./components/SecurityLayout/PrivateRoute/PrivateRoute.jsx";
 
 const router = createBrowserRouter([
   {
@@ -37,6 +40,22 @@ const router = createBrowserRouter([
       {
         path: "/instractor",
         element: <Instractor />,
+      },
+    ],
+  },
+
+  {
+    path: "/dashboard",
+    element: (
+      <PrivateRoute>
+        <DashboardHome />
+      </PrivateRoute>
+    ),
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        path: "home",
+        element: <StudentHome />,
       },
     ],
   },
