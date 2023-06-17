@@ -29,7 +29,28 @@ const Regestation = () => {
     createUser(data?.email, data?.password)
       .then((result) => {
         const user = result.user;
-        console.log(user);
+
+        const saveUser = {
+          name: data?.name,
+          email: data?.email,
+          role: data?.role,
+        };
+
+        fetch("http://localhost:4000/users", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(saveUser),
+        })
+          .then((res) => res.json())
+          .then((result) => {
+            console.log(result);
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+          });
+
         updateUserProfile(data.name, data.photoURL)
           .then(() => {
             reset();
@@ -46,6 +67,24 @@ const Regestation = () => {
   const handelGoogleSignin = () => {
     googleSignIn().then((result) => {
       const user = result.user;
+      const saveUser = {
+        name: user?.displayName,
+        email: user?.email,
+        role: "student",
+      };
+
+      fetch("http://localhost:4000/users", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(saveUser),
+      })
+        .then((res) => res.json())
+        .then((result) => {})
+        .catch((error) => {
+          console.error("Error:", error);
+        });
 
       if (user) {
         Swal.fire("Registration Success!", "Go Back", "success");
@@ -154,6 +193,17 @@ const Regestation = () => {
                 {...register("photoURL", { required: true })}
               />
             </label>
+
+            <label className="hidden" htmlFor="">
+              Photo Url <br />
+              <input
+                className="bg-[#F9F9F9] w-full p-3 mt-1 mb-4"
+                placeholder="Role"
+                defaultValue="student"
+                {...register("role", { required: true })}
+              />
+            </label>
+
             {errors.exampleRequired && <span>This field is required</span>}
             <p>
               Alrady have account

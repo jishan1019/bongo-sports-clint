@@ -40,19 +40,37 @@ const Login = () => {
 
   const handelGoogleSignin = () => {
     setisLoading(true);
-    googleSignIn()
-      .then((result) => {
-        const user = result.user;
-        setisLoading(false);
-        if (user) {
-          Swal.fire("Login Success!", "Go Back", "success");
-          navigate(form, { replace: true });
-        }
+    googleSignIn().then((result) => {
+      const user = result.user;
+      const saveUser = {
+        name: user?.displayName,
+        email: user?.email,
+        role: "student",
+      };
+
+      fetch("http://localhost:4000/users", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(saveUser),
       })
-      .catch((err) => {
-        console.log(err);
+        .then((res) => res.json())
+        .then((result) => {
+          console.log(result);
+          setisLoading(false);
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+          setisLoading(false);
+        });
+
+      if (user) {
+        Swal.fire("Registration Success!", "Go Back", "success");
+        navigate("/");
         setisLoading(false);
-      });
+      }
+    });
   };
 
   if (isLoading) {
