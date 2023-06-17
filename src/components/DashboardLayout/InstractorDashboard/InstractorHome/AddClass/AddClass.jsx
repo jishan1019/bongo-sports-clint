@@ -1,6 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import useUserRole from "../../../../CustomHook/useUserRole";
+import Swal from "sweetalert2";
 
 const AddClass = () => {
   const userRole = useUserRole();
@@ -12,7 +13,23 @@ const AddClass = () => {
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
-    console.log(data);
+    reset();
+
+    fetch("http://localhost:4000/classes", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        console.log(result);
+        Swal.fire("Class Add Success!", "Go Back", "success");
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
   };
 
   return (
