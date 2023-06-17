@@ -15,7 +15,7 @@ const AddClass = () => {
   const onSubmit = (data) => {
     reset();
 
-    fetch("http://localhost:4000/classes", {
+    fetch("https://bongo-sports-acadamy-server.vercel.app/classes", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

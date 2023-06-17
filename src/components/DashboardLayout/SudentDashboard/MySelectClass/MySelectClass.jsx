@@ -11,15 +11,18 @@ const MySelectClass = () => {
   const { data, isLoading, error } = useQuery(
     "cartItems",
     () =>
-      fetch(`http://localhost:4000/cart/${user?.email}`).then((res) =>
-        res.json()
-      ),
+      fetch(
+        `https://bongo-sports-acadamy-server.vercel.app/cart/${user?.email}`
+      ).then((res) => res.json()),
     { enabled: !!user }
   );
 
   // Delete cart item mutation
   const deleteCartItem = useMutation(
-    (_id) => fetch(`http://localhost:4000/cart/${_id}`, { method: "DELETE" }),
+    (_id) =>
+      fetch(`https://bongo-sports-acadamy-server.vercel.app/cart/${_id}`, {
+        method: "DELETE",
+      }),
     {
       onSuccess: () => {
         // Invalidate and refetch the cart items query to update the UI

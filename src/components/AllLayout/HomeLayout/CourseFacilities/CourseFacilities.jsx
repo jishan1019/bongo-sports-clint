@@ -6,7 +6,7 @@ import SectionTitel from "../../ShareLayout/SectionTitel/SectionTitel";
 
 const CourseFacilities = () => {
   const { data, isLoading, error } = useAxiosLoadData(
-    "http://localhost:4000/facilities"
+    "https://bongo-sports-acadamy-server.vercel.app/facilities"
   );
 
   if (isLoading) {

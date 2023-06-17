@@ -13,7 +13,7 @@ import {
 const Instractor = () => {
   // Axios Code Here
   const { data, isLoading, error } = useAxiosLoadData(
-    "http://localhost:4000/instractor"
+    "https://bongo-sports-acadamy-server.vercel.app/instractor"
   );
 
   if (isLoading) {

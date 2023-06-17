@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 
 const PopularClass = () => {
   const { data, isLoading, error } = useAxiosLoadData(
-    "http://localhost:4000/classes"
+    "https://bongo-sports-acadamy-server.vercel.app/classes"
   );
 
   const sliceData = data.slice(0, 6);

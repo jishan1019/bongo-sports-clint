@@ -8,7 +8,7 @@ const ManageUser = () => {
   const [desable, setDesable] = useState(false);
 
   const { data, isLoading, error } = useAxiosLoadData(
-    "http://localhost:4000/users"
+    "https://bongo-sports-acadamy-server.vercel.app/users"
   );
 
   if (isLoading) {
@@ -31,11 +31,14 @@ const ManageUser = () => {
       role: "instractor",
     };
 
-    fetch(`http://localhost:4000/users/${singleUser?.email}`, {
-      method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(newData),
-    })
+    fetch(
+      `https://bongo-sports-acadamy-server.vercel.app/users/${singleUser?.email}`,
+      {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(newData),
+      }
+    )
       .then((res) => res.json())
       .then((result) => {
         setDesable(true);
@@ -53,11 +56,14 @@ const ManageUser = () => {
       role: "admin",
     };
 
-    fetch(`http://localhost:4000/users/${singleUser?.email}`, {
-      method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(newData),
-    })
+    fetch(
+      `https://bongo-sports-acadamy-server.vercel.app/users/${singleUser?.email}`,
+      {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(newData),
+      }
+    )
       .then((res) => res.json())
       .then((result) => {
         setDesable(true);

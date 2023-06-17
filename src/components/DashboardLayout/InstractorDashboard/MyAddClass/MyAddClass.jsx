@@ -7,7 +7,7 @@ const MyAddClass = () => {
   const userEmail = userRole?.data?.email;
 
   const { data, isLoading, error } = useAxiosLoadData(
-    `http://localhost:4000/classes/${userEmail}`
+    `https://bongo-sports-acadamy-server.vercel.app/classes/${userEmail}`
   );
 
   console.log(userEmail, data);

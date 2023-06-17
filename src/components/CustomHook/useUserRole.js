@@ -6,7 +6,7 @@ const useUserRole = () => {
   const { user } = useContext(AuthContext);
 
   const { data, isLoading, error } = useAxiosLoadData(
-    `http://localhost:4000/users/${user?.email}`
+    `https://bongo-sports-acadamy-server.vercel.app/users/${user?.email}`
   );
   const userRole = data?.role;
 

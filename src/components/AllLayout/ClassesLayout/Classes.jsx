@@ -24,7 +24,7 @@ const Classes = () => {
   const { user } = useContext(AuthContext);
 
   const { data, isLoading, error } = useAxiosLoadData(
-    "http://localhost:4000/classes"
+    "https://bongo-sports-acadamy-server.vercel.app/classes"
   );
 
   const approveClasses = data.filter((approve) => approve.status === "approve");
@@ -39,7 +39,7 @@ const Classes = () => {
       enroll_status: "pending",
     };
 
-    fetch("http://localhost:4000/cart", {
+    fetch("https://bongo-sports-acadamy-server.vercel.app/cart", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
