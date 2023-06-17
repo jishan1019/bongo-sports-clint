@@ -64,7 +64,7 @@ const DashboardHeader = () => {
             {userRole?.userRole === "student" && (
               <ul
                 tabIndex={0}
-                className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-60 bg_primary"
+                className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-60 z-50 relative"
               >
                 <li>
                   <Link to="/dashboard/home">Student Home</Link>
@@ -97,7 +97,7 @@ const DashboardHeader = () => {
             {userRole?.userRole === "instractor" && (
               <ul
                 tabIndex={0}
-                className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-60 bg_primary"
+                className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-60 z-50 relative"
               >
                 <li>
                   <Link to="">Instractor Home</Link>
@@ -122,7 +122,7 @@ const DashboardHeader = () => {
             {userRole?.userRole === "admin" && (
               <ul
                 tabIndex={0}
-                className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-60 bg_primary"
+                className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-60 z-50 relative"
               >
                 <li>
                   <Link to="">Admin Home</Link>
