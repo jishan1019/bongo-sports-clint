@@ -1,6 +1,5 @@
 import React from "react";
-import HelmetTitle from "../../ShareLayout/Helmet/HelmetTitel";
-import MovingText from "react-moving-text";
+import SectionTitel from "../../ShareLayout/SectionTitel/SectionTitel";
 import useAxiosLoadData from "../../../CustomHook/useAxiosLoadData";
 import Loader from "../../ShareLayout/Loader/Loader";
 import {
@@ -10,13 +9,11 @@ import {
   AiOutlineFork,
 } from "react-icons/ai";
 
-const Instractor = () => {
+const PopularInstractor = () => {
   // Axios Code Here
   const { data, isLoading, error } = useAxiosLoadData(
     "http://localhost:4000/instractor"
   );
-
-  console.log(data);
 
   if (isLoading) {
     return <Loader />;
@@ -31,43 +28,17 @@ const Instractor = () => {
   }
 
   return (
-    <section className="mb-16">
-      <HelmetTitle title="Instractor" />
-
-      <div className="pt-12 pb-12 space-y-2 bg_primary text-center  ">
-        <h1 className="text-3xl font-bold">
-          <MovingText
-            type="slideInFromBottom"
-            duration="900ms"
-            delay="0s"
-            direction="normal"
-            timing="ease"
-            iteration="1"
-            fillMode="none"
-          >
-            Instractors
-          </MovingText>
-        </h1>
-        <h1>
-          <MovingText
-            type="slideInFromTop"
-            duration="900ms"
-            delay="0s"
-            direction="normal"
-            timing="ease"
-            iteration="1"
-            fillMode="none"
-          >
-            Home - Our Instractors
-          </MovingText>
-        </h1>
-      </div>
+    <section className="bg-[url('http://webdesign-finder.com/equestria/wp-content/uploads/2017/10/parallax.jpg')] h-[100%] p-4 mt-16 mb-16 bg-fixed">
+      <SectionTitel
+        titel="Popular Instractor "
+        subTitel="Explore the Most Popular Choices!"
+      ></SectionTitel>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10 mb-10 ml-4 mr-4">
         {data?.map((instractor) => (
           <div
             key={instractor._id}
-            className="card w-full bg-gradient-to-t from-white to-[#F1F1F1] shadow-md rounded-sm"
+            className="card w-full bg-white shadow-md rounded-sm"
           >
             <figure className=" mx-auto mt-8">
               <img
@@ -90,14 +61,6 @@ const Instractor = () => {
                 <AiOutlineFork />
                 <strong>Class</strong>: {instractor?.number_of_classes}
               </p>
-              <div className="card-actions justify-start mt-4">
-                <button
-                  className="btn bg_primary
-"
-                >
-                  See Classes
-                </button>
-              </div>
             </div>
           </div>
         ))}
@@ -106,4 +69,4 @@ const Instractor = () => {
   );
 };
 
-export default Instractor;
+export default PopularInstractor;

@@ -25,7 +25,7 @@ const SectionTitel = ({ titel, subTitel }) => {
         </div>
       </div>
 
-      <p className="mb-16 w-1/2 text-center mx-auto">{subTitel}</p>
+      <p className="mb-16 w-[80%] md:w-1/2 text-center mx-auto">{subTitel}</p>
     </>
   );
 };

@@ -10,8 +10,6 @@ const PopularClass = () => {
     "http://localhost:4000/classes"
   );
 
-  console.log(data.slice(0, 6));
-
   const sliceData = data.slice(0, 6);
 
   if (isLoading) {
@@ -27,7 +25,7 @@ const PopularClass = () => {
   }
 
   return (
-    <section className="mb-16 mt-16">
+    <section className="mb-16 mt-16 p-3">
       <SectionTitel
         titel="Popular Classes "
         // subTitel="Explore the Most Popular Choices!"

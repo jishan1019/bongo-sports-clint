@@ -5,6 +5,7 @@ import ClientSay from "../ClientSay/ClientSay";
 import CourseFacilities from "../CourseFacilities/CourseFacilities";
 import Appointment from "../Appointment/Appointment";
 import PopularClass from "../PopularClass/PopularClass";
+import PopularInstractor from "../PopularInstractor/PopularInstractor";
 
 const Home = () => {
   return (
@@ -13,6 +14,7 @@ const Home = () => {
       <HelmetTitle title="Home" />
       <Slider />
       <PopularClass />
+      <PopularInstractor />
       <CourseFacilities />
       <ClientSay />
       <Appointment />
