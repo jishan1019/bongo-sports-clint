@@ -24,7 +24,6 @@ const AddClass = () => {
     })
       .then((res) => res.json())
       .then((result) => {
-        console.log(result);
         Swal.fire("Class Add Success!", "Go Back", "success");
       })
       .catch((error) => {
@@ -94,6 +93,17 @@ const AddClass = () => {
               className="bg-[#f9f9f9b6] w-full p-3 mt-1 mb-4"
               placeholder="Enter Class Prise"
               {...register("price", { required: true })}
+            />
+          </label>
+
+          <label htmlFor="">
+            Enroll Student <br />
+            <input
+              type="number"
+              defaultValue="0"
+              className="bg-[#f9f9f9b6] w-full p-3 mt-1 mb-4"
+              placeholder="Enter Enroll Student"
+              {...register("enrollStudents", { required: true })}
             />
           </label>
 

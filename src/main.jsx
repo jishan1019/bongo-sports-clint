@@ -18,6 +18,8 @@ import MyEnrollClass from "./components/DashboardLayout/SudentDashboard/MyEnroll
 import MySelectClass from "./components/DashboardLayout/SudentDashboard/MySelectClass/MySelectClass.jsx";
 import PaymentHistory from "./components/DashboardLayout/SudentDashboard/PaymentHistory/PaymentHistory.jsx";
 import { QueryClient, QueryClientProvider } from "react-query";
+import AddClass from "./components/DashboardLayout/InstractorDashboard/InstractorHome/AddClass/AddClass.jsx";
+import MyAddClass from "./components/DashboardLayout/InstractorDashboard/MyAddClass/MyAddClass.jsx";
 
 const queryClient = new QueryClient();
 
@@ -78,6 +80,14 @@ const router = createBrowserRouter([
       {
         path: "payment_history",
         element: <PaymentHistory />,
+      },
+      {
+        path: "add_class",
+        element: <AddClass />,
+      },
+      {
+        path: "my_add_class",
+        element: <MyAddClass />,
       },
     ],
   },

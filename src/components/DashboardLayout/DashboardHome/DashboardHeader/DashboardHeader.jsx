@@ -100,15 +100,15 @@ const DashboardHeader = () => {
                 className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-60 z-50 relative"
               >
                 <li>
-                  <Link to="">Instractor Home</Link>
+                  <Link to="/dashboard/add_class">Instractor Home</Link>
                 </li>
 
                 <li>
-                  <Link to="">Add a Class</Link>
+                  <Link to="/dashboard/add_class">Add a Class</Link>
                 </li>
 
                 <li>
-                  <Link to="">My Add Classes</Link>
+                  <Link to="/dashboard/my_add_class">My Add Classes</Link>
                 </li>
 
                 <div className="divider">OR</div>
